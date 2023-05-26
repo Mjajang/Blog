@@ -41,16 +41,15 @@ Route::get('/categories', function(){
 });
 
 Route::get('/categories/{category:slug}', function(Category $category){
-    return view('category', [
-        'title' => $category->name,
-        'posts' => $category->posts,
-        'category' => $category->slug
+    return view('posts', [
+        'title' => "Posts By Category: $category->name",
+        'posts' => $category->posts->load('category', 'author'),
     ]);
 });
 
 Route::get('/authors/{author:username}', function(User $author){
     return view('posts', [
-        'title' => 'User Posts',
-        'posts' => $author->posts
+        'title' => "Posts By Author: $author->name",
+        'posts' => $author->posts->load('category', 'author')
     ]);
 });
