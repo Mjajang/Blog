@@ -21,7 +21,7 @@
 <p class="text-center fs-4">No Post Found</p>
 @endif
 
-{{-- <div class="container"> --}}
+<div class="container">
   <div class="row">
     @foreach($posts->skip(1) as $post)
     <div class="col-md-4 mb-3">
@@ -48,7 +48,7 @@
     </div>
     @endforeach
   </div>
-{{-- </div> --}}
+</div>
 {{-- 
 @foreach($posts->skip(1) as $post)
 <article class="mb-5 border-bottom pb-4">
